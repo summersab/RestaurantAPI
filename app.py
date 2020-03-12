@@ -21,6 +21,3 @@ api.add_resource(MenuFoodItemResource, '/menus/<int:id>/foods/<int:foodId>')
 
 # Route For Food endpoint
 api.add_resource(FoodResource,'/foods')
-
-
-

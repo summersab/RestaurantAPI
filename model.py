@@ -25,7 +25,6 @@ class FoodModel(db.Model):
         self.restaurant_id = restaurant_id
         self.menu_id = menu_id
 
-
 class MenuModel(db.Model):
     __tablename__ = 'menus'
     id = db.Column(db.Integer, primary_key=True)
@@ -37,7 +36,6 @@ class MenuModel(db.Model):
         self.name = name
         self.restaurant_id = restaurant_id
 
-
 class RestaurantModel(db.Model):
     __tablename__ = 'restaurants'
     id = db.Column(db.Integer, primary_key=True)
@@ -45,7 +43,6 @@ class RestaurantModel(db.Model):
 
     def __init__(self, name):
         self.name = name
-
 
 class RestaurantSchema(ma.Schema):
     id = fields.Integer()
@@ -59,6 +56,7 @@ class MenuSchema(ma.Schema):
 class FoodSchema(ma.Schema):
     id = fields.Integer(dump_only=True)
     restaurant_id = fields.Integer(required=True)
+    menu_id = fields.Integer(required=True)
     name = fields.String(required=True, validate=validate.Length(1))
     description = fields.String()
     creation_date = fields.DateTime()

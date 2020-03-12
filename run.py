@@ -3,7 +3,6 @@ from app import api_bp
 from model import db, redis_cache
 from config import DevelopmentConfig, TestingConfig, BaseConfig, PresentConfig
 
-
 app = Flask(__name__)
 
 t = 0
@@ -25,8 +24,7 @@ def availableApps():
 
     return render_template('availableApp.html')
 
-
 if __name__ == "__main__":
     PresentConfig = BaseConfig
     app = create_app(PresentConfig)
-    app.run(debug=True)
+    app.run(use_debugger=False, use_reloader=False, passthrough_errors=True)

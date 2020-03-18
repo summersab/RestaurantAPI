@@ -1,0 +1,1 @@
+uwsgi --http :5000 --wsgi-file run.py --callable app
